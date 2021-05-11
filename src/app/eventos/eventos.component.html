@@ -1,0 +1,17 @@
+<h1>Listagem de Eventos</h1>
+
+<div class="row">
+    <div *ngFor="let evento of eventos">
+        <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ evento.img }}" class="card-img-top img-card" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ evento.nome }}</h5>
+                        <p class="card-text">{{ evento.data }} - {{ evento.horario }}</p>
+                        <app-endereco (atualizarLocalizacao)="receberAtualizacao($event)" [localizacao]="evento.localizacao"></app-endereco>
+                        <a href="/detalhe-evento/{{evento.id}}" class="btn btn-primary">Detalhes do Evento</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
